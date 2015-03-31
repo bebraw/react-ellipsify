@@ -40,6 +40,9 @@
     "webpack-dev-server": "^1.7.0",
     "xtend": "^4.0.0"
   },
+  "peerDependencies": {
+    "react": "^0.12.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bebraw/react-component-boilerplate.git"
