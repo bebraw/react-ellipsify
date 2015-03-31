@@ -17,11 +17,17 @@ module.exports = React.createClass({
     getInitialState() {
         return {
             visibleItems: 5,
+            separator: ' ',
+            more: '…',
+            atFront: true,
         };
     },
 
     render() {
         var visibleItems = parseInt(this.state.visibleItems, 10);
+        var separator = this.state.separator;
+        var more = this.state.more;
+        var atFront = this.state.atFront;
 
         return (
             <div className='pure-g'>
@@ -38,12 +44,32 @@ module.exports = React.createClass({
 
                             <p>Tweak values below and see how Ellipsify behaves.</p>
 
-                            <div className='controls'>
-                                <label>Visible items: <input type="number" valueLink={this.linkState('visibleItems')} /></label>
-                            </div>
+                            <form className='pure-form pure-form-aligned controls'>
+                                <fieldset>
+                                    <div className='pure-control-group'>
+                                        <label>Visible items</label>
+                                        <input type="number" valueLink={this.linkState('visibleItems')} />
+                                    </div>
+
+                                    <div className='pure-control-group'>
+                                        <label>Separator</label>
+                                        <input type="text" valueLink={this.linkState('separator')} />
+                                    </div>
+
+                                    <div className='pure-control-group'>
+                                        <label>More</label>
+                                        <input type="text" valueLink={this.linkState('more')} />
+                                    </div>
+
+                                    <div className='pure-control-group'>
+                                        <label>At Front</label>
+                                        <input type="checkbox" valueLink={this.linkState('more')} />
+                                    </div>
+                                </fieldset>
+                            </form>
                         </div>
 
-                        <Ellipsify visibleItems={visibleItems} separator=' ' more='…' moreClass='more' atFront={true}>
+                        <Ellipsify visibleItems={visibleItems} separator={separator} more={more} moreClass='more' atFront={atFront}>
                             <p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit. Proin consectetur enim ligula, a mollis est consequat sollicitudin. Pellentesque eleifend blandit metus, ac fermentum velit sagittis ut. Etiam malesuada dui id est venenatis dapibus.</p>
 
                             <p>Pellentesque non sem rutrum, suscipit risus at, vulputate eros. Aliquam a lacinia eros. Nulla et imperdiet neque. Vivamus finibus urna nec laoreet consectetur. Ut eget consectetur nulla. Curabitur vitae mauris felis.</p>
