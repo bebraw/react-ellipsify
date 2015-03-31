@@ -44,26 +44,28 @@ module.exports = React.createClass({
 
                             <p>Tweak values below and see how Ellipsify behaves.</p>
 
-                            <form className='pure-form pure-form-aligned controls'>
+                            <form className='pure-form pure-form-stacked controls'>
                                 <fieldset>
-                                    <div className='pure-control-group'>
-                                        <label>Visible items</label>
-                                        <input type="number" valueLink={this.linkState('visibleItems')} />
-                                    </div>
+                                    <div className='pure-g'>
+                                        <div className='pure-u-1-2 pure-u-md-1-2'>
+                                            <label>Visible items</label>
+                                            <input type='number' className='pure-u-23-24' valueLink={this.linkState('visibleItems')} />
+                                        </div>
 
-                                    <div className='pure-control-group'>
-                                        <label>Separator</label>
-                                        <input type="text" valueLink={this.linkState('separator')} />
-                                    </div>
+                                        <div className='pure-u-1-2 pure-u-md-1-2'>
+                                            <label>Separator</label>
+                                            <input type='text' className='pure-u-23-24' valueLink={this.linkState('separator')} />
+                                        </div>
 
-                                    <div className='pure-control-group'>
-                                        <label>More</label>
-                                        <input type="text" valueLink={this.linkState('more')} />
-                                    </div>
+                                        <div className='pure-u-1-2 pure-u-md-1-2'>
+                                            <label>More</label>
+                                            <input type='text' className='pure-u-23-24' valueLink={this.linkState('more')} />
+                                        </div>
 
-                                    <div className='pure-control-group'>
-                                        <label>At Front</label>
-                                        <input type="checkbox" valueLink={this.linkState('more')} />
+                                        <div className='pure-u-1-2 pure-u-md-1-2'>
+                                            <label>At Front</label>
+                                            <input type='checkbox' className='pure-u-23-24' valueLink={this.linkState('more')} />
+                                        </div>
                                     </div>
                                 </fieldset>
                             </form>
