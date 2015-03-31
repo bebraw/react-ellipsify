@@ -1,0 +1,68 @@
+{
+  "name": "react-component-boilerplate",
+  "description": "Boilerplate for React.js components",
+  "author": "Juho Vepsalainen <bebraw@gmail.com>",
+  "user": "bebraw",
+  "version": "0.2.0",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest && npm run lint",
+    "gh-pages": "webpack --config ./config/webpack.gh-pages.js",
+    "deploy-gh-pages": "node ./config/deploy-gh-pages.js",
+    "dist": "webpack --config ./config/webpack.dist.js && webpack --config ./config/webpack.dist.min.js",
+    "lint": "eslint . --ext .js --ext .jsx"
+  },
+  "main": "dist/boilerplate.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^2.0.2",
+    "css-loader": "^0.9.1",
+    "eslint": "^0.17.1",
+    "eslint-plugin-react": "^1.6.1",
+    "file-loader": "^0.8.1",
+    "gh-pages": "^0.2.0",
+    "highlight-loader": "^0.2.0",
+    "highlight.js": "^8.4.0",
+    "html-loader": "^0.2.3",
+    "html-webpack-plugin": "^1.1.0",
+    "jest-cli": "^0.4.0",
+    "json-loader": "^0.5.1",
+    "jsx-loader": "^0.12.2",
+    "markdown-loader": "^0.1.2",
+    "purecss": "^0.6.0",
+    "react": "^0.12.2",
+    "react-ghfork": "^0.2.2",
+    "react-hot-loader": "^1.2.3",
+    "react-tools": "^0.13.1",
+    "style-loader": "^0.9.0",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.7.3",
+    "webpack-dev-server": "^1.7.0",
+    "xtend": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bebraw/react-component-boilerplate.git"
+  },
+  "homepage": "https://github.com/bebraw/react-component-boilerplate",
+  "bugs": {
+    "url": "https://github.com/bebraw/react-component-boilerplate/issues"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "boilerplate"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/bebraw/react-component-boilerplate/blob/master/LICENSE"
+    }
+  ],
+  "jest": {
+    "scriptPreprocessor": "./config/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "./node_modules/react"
+    ]
+  }
+}
