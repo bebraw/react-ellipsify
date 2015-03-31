@@ -1,6 +1,6 @@
 {
-  "name": "react-component-boilerplate",
-  "description": "Boilerplate for React.js components",
+  "name": "react-ellipsify",
+  "description": "Ellipsify content",
   "author": "Juho Vepsalainen <bebraw@gmail.com>",
   "user": "bebraw",
   "version": "0.2.0",
@@ -12,7 +12,7 @@
     "dist": "webpack --config ./config/webpack.dist.js && webpack --config ./config/webpack.dist.min.js",
     "lint": "eslint . --ext .js --ext .jsx"
   },
-  "main": "dist/boilerplate.js",
+  "main": "dist/ellipsify.js",
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^2.0.2",
@@ -45,21 +45,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bebraw/react-component-boilerplate.git"
+    "url": "https://github.com/bebraw/react-ellipsify.git"
   },
-  "homepage": "https://github.com/bebraw/react-component-boilerplate",
+  "homepage": "https://github.com/bebraw/react-ellipsify",
   "bugs": {
-    "url": "https://github.com/bebraw/react-component-boilerplate/issues"
+    "url": "https://github.com/bebraw/react-ellipsify/issues"
   },
   "keywords": [
     "react",
     "reactjs",
-    "boilerplate"
+    "ellipsis"
   ],
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/bebraw/react-component-boilerplate/blob/master/LICENSE"
+      "url": "https://github.com/bebraw/react-ellipsify/blob/master/LICENSE"
     }
   ],
   "jest": {

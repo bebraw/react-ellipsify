@@ -7,8 +7,8 @@ var pkg = require('../package.json');
 
 
 var config = {
-    filename: 'boilerplate',
-    library: 'Boilerplate',
+    filename: 'ellipsify',
+    library: 'Ellipsify',
     demoDirectory: 'demo',
 };
 
