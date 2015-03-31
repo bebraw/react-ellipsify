@@ -12,7 +12,17 @@ var Ellipsify = require('../lib');
 module.exports = React.createClass({
     displayName: 'App',
 
+    mixins: [React.addons.LinkedStateMixin],
+
+    getInitialState() {
+        return {
+            visibleItems: 5,
+        };
+    },
+
     render() {
+        var visibleItems = parseInt(this.state.visibleItems, 10);
+
         return (
             <div className='pure-g'>
                 <Fork className='right' project={pkgInfo.user + '/' + pkgInfo.name} />
@@ -26,10 +36,14 @@ module.exports = React.createClass({
                         <div className='description'>
                             <h2>Demonstration</h2>
 
-                            <p>Just demonstrating the awesomeness of this boilerplate here.</p>
+                            <p>Tweak values below and see how Ellipsify behaves.</p>
+
+                            <div className='controls'>
+                                <label>Visible items: <input type="number" valueLink={this.linkState('visibleItems')} /></label>
+                            </div>
                         </div>
 
-                        <Ellipsify visibleItems={5} separator=' ' more='…' moreClass='more' atFront={true}>
+                        <Ellipsify visibleItems={visibleItems} separator=' ' more='…' moreClass='more' atFront={true}>
                             <p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit. Proin consectetur enim ligula, a mollis est consequat sollicitudin. Pellentesque eleifend blandit metus, ac fermentum velit sagittis ut. Etiam malesuada dui id est venenatis dapibus.</p>
 
                             <p>Pellentesque non sem rutrum, suscipit risus at, vulputate eros. Aliquam a lacinia eros. Nulla et imperdiet neque. Vivamus finibus urna nec laoreet consectetur. Ut eget consectetur nulla. Curabitur vitae mauris felis.</p>
