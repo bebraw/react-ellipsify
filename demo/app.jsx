@@ -80,7 +80,7 @@ module.exports = React.createClass({
                             </form>
                         </div>
 
-                        <Ellipsify visibleItems={visibleItems} separator={separator} more={more} moreClass='more' atFront={atFront} onShow={this.setVisible}>
+                        <Ellipsify visible={visible} visibleItems={visibleItems} separator={separator} more={more} moreClass='more' atFront={atFront} onShow={this.setVisible}>
                             <p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit. Proin consectetur enim ligula, a mollis est consequat sollicitudin. Pellentesque eleifend blandit metus, ac fermentum velit sagittis ut. Etiam malesuada dui id est venenatis dapibus.</p>
 
                             <p>Pellentesque non sem rutrum, suscipit risus at, vulputate eros. Aliquam a lacinia eros. Nulla et imperdiet neque. Vivamus finibus urna nec laoreet consectetur. Ut eget consectetur nulla. Curabitur vitae mauris felis.</p>
@@ -107,6 +107,8 @@ module.exports = React.createClass({
     reset(e) {
         e.preventDefault();
 
-        console.log('reset now');
+        this.setState({
+            visible: false,
+        });
     },
 });
