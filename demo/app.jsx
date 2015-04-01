@@ -16,6 +16,7 @@ module.exports = React.createClass({
 
     getInitialState() {
         return {
+            visible: false,
             visibleItems: 5,
             separator: ' ',
             more: '…',
@@ -24,6 +25,7 @@ module.exports = React.createClass({
     },
 
     render() {
+        var visible = this.state.visible;
         var visibleItems = parseInt(this.state.visibleItems, 10);
         var separator = this.state.separator;
         var more = this.state.more;
@@ -68,10 +70,17 @@ module.exports = React.createClass({
                                         </div>
                                     </div>
                                 </fieldset>
+                                <fieldset>
+                                    <div className='pure-g'>
+                                        <div className='pure-u-1 pure-u-md-1'>
+                                            <button type="submit" onClick={this.reset} disabled={!visible} className="pure-button pure-button-primary">Reset</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </form>
                         </div>
 
-                        <Ellipsify visibleItems={visibleItems} separator={separator} more={more} moreClass='more' atFront={atFront}>
+                        <Ellipsify visibleItems={visibleItems} separator={separator} more={more} moreClass='more' atFront={atFront} onShow={this.setVisible}>
                             <p><b>Lorem ipsum</b> dolor sit amet, consectetur adipiscing elit. Proin consectetur enim ligula, a mollis est consequat sollicitudin. Pellentesque eleifend blandit metus, ac fermentum velit sagittis ut. Etiam malesuada dui id est venenatis dapibus.</p>
 
                             <p>Pellentesque non sem rutrum, suscipit risus at, vulputate eros. Aliquam a lacinia eros. Nulla et imperdiet neque. Vivamus finibus urna nec laoreet consectetur. Ut eget consectetur nulla. Curabitur vitae mauris felis.</p>
@@ -87,5 +96,17 @@ module.exports = React.createClass({
                 </article>
             </div>
         );
+    },
+
+    setVisible() {
+        this.setState({
+            visible: true,
+        });
+    },
+
+    reset(e) {
+        e.preventDefault();
+
+        console.log('reset now');
     },
 });
