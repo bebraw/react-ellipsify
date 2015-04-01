@@ -65,7 +65,7 @@ module.exports = React.createClass({
                                         </div>
 
                                         <div className='pure-u-1-2 pure-u-md-1-2'>
-                                            <label>At Front</label>
+                                            <label>At front</label>
                                             <input type='checkbox' className='pure-u-23-24' checkedLink={this.linkState('atFront')} />
                                         </div>
                                     </div>
