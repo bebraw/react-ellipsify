@@ -19,9 +19,9 @@ module.exports = React.createClass({
 
     render() {
         return (
-            <span key='more' className={this.props.moreClass} {...this.props}>
+            <a href='#' key='more' className={this.props.moreClass} {...this.props}>
                 {this.props.more}
-            </span>
+            </a>
         );
     },
 });
