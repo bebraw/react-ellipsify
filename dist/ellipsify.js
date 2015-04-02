@@ -58,6 +58,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var React = __webpack_require__(1);
 	var cloneWithProps = React.addons.cloneWithProps;
 
+	var More = __webpack_require__(2);
+
 
 	module.exports = React.createClass({
 	    displayName: 'Ellipsify',
@@ -77,8 +79,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            visible: false,
 	            visibleItems: 5,
 	            separator: ' ',
-	            more: '…',
-	            moreClass: 'more',
 	            atFront: true,
 	            onShow: noop,
 	        };
@@ -87,40 +87,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	    componentWillReceiveProps:function(nextProps) {
 	        this.setState({
 	            visible: nextProps.visible,
+	            content: ellipsify(nextProps),
 	        });
 	    },
 
 	    getInitialState:function() {
 	        return {
 	            visible: false,
+	            content: [],
 	        };
+	    },
+
+	    componentWillMount:function() {
+	        this.setState({
+	            content: ellipsify(this.props),
+	        });
 	    },
 
 	    render:function() {
 	        var visible = this.state.visible;
-
-	        var moreClass = this.props.moreClass;
-	        var moreContent = this.props.more;
 	        var atFront = this.props.atFront;
 
-	        return (
-	            React.createElement("div", null, visible?
-	                this.props.children:
-	                atFront? [
-	                    ellipsify(this.props),
-	                    React.createElement("span", {key: "more", className: moreClass, onClick: this.onClick}, moreContent),
-	                ]:
-	                [
-	                    React.createElement("span", {key: "more", className: moreClass, onClick: this.onClick}, moreContent),
-	                    ellipsify(this.props),
-	                ]
-	            )
-	        );
+	        if(visible) {
+	            return React.createElement("div", null, this.props.children);
+	        }
+
+	        var content = this.state.content;
+	        var more = React.createElement(More, {key: "more", more: this.props.more, moreClass: this.props.moreClass, onClick: this.show});
+
+	        return React.createElement("div", null, atFront? [content, more]: [more, content]);
 	    },
 
-	    onClick:function() {
+	    show:function() {
 	        this.setState({
 	            visible: true,
+	            content: this.props.children,
 	        });
 
 	        this.props.onShow();
@@ -240,6 +241,39 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var React = __webpack_require__(1);
+
+
+	module.exports = React.createClass({
+	    displayName: 'More',
+
+	    propTypes: {
+	        more: React.PropTypes.string,
+	        moreClass: React.PropTypes.string,
+	    },
+
+	    getDefaultProps:function() {
+	        return {
+	            more: '…',
+	            moreClass: 'more',
+	        };
+	    },
+
+	    render:function() {
+	        return (
+	            React.createElement("a", React.__spread({href: "#", key: "more", className: this.props.moreClass},  this.props), 
+	                this.props.more
+	            )
+	        );
+	    },
+	});
+
 
 /***/ }
 /******/ ])
