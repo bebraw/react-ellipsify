@@ -85,13 +85,3 @@ article .description {
 article .description h2 {
     margin: 0;
 }
-
-/* animations */
-.ellipsify-enter {
-  opacity: 0.01;
-  transition: opacity .5s ease-in;
-}
-
-.ellipsify-enter.ellipsify-enter-active {
-  opacity: 1;
-}
