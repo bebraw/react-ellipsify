@@ -30,7 +30,7 @@ var commonLoaders = [
     },
     {
         test: /\.md$/,
-        loader: 'html!../loaders/decode!highlight!markdown',
+        loaders: ['html', 'highlight', 'markdown']
     },
     {
         test: /\.png$/,
