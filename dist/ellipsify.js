@@ -57,9 +57,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	var React = __webpack_require__(1);
 
-	var More = __webpack_require__(2);
-
-
 	module.exports = React.createClass({
 	    displayName: 'Ellipsify',
 
@@ -67,7 +64,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        visible: React.PropTypes.bool,
 	        visibleItems: React.PropTypes.number,
 	        separator: React.PropTypes.string,
-	        more: React.PropTypes.string,
+	        more: React.PropTypes.node,
 	        moreClass: React.PropTypes.string,
 	        atFront: React.PropTypes.bool,
 	        onShow: React.PropTypes.func,
@@ -79,8 +76,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            visible: false,
 	            visibleItems: 5,
 	            separator: ' ',
-	            atFront: true,
+	            atFront: false,
 	            onShow: noop,
+	            moreClass: 'more'
 	        };
 	    },
 
@@ -113,9 +111,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        var content = this.state.content;
-	        var more = React.createElement(More, {key: "more", more: this.props.more, moreClass: this.props.moreClass, onClick: this.show});
+	        var more = React.createElement("div", {key: "more", className: this.props.moreClass, onClick: this.show}, 
+	            this.props.more ? this.props.more : '…'
+	        );
 
-	        return React.createElement("div", null, atFront? [content, more]: [more, content]);
+	        return React.createElement("div", null, atFront? [more, content]: [content, more]);
 	    },
 
 	    show:function() {
@@ -129,7 +129,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	function ellipsify(options) {
-	    var traverse = options.atFront? ellipsifyFromFront: ellipsifyFromBack;
+	    var traverse = options.atFront? ellipsifyFromBack: ellipsifyFromFront;
 
 	    return traverse(options, options.children, {
 	        visible: 0,
@@ -237,39 +237,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var React = __webpack_require__(1);
-
-
-	module.exports = React.createClass({
-	    displayName: 'More',
-
-	    propTypes: {
-	        more: React.PropTypes.string,
-	        moreClass: React.PropTypes.string,
-	    },
-
-	    getDefaultProps:function() {
-	        return {
-	            more: '…',
-	            moreClass: 'more',
-	        };
-	    },
-
-	    render:function() {
-	        return (
-	            React.createElement("a", React.__spread({href: "#", key: "more", className: this.props.moreClass},  this.props), 
-	                this.props.more
-	            )
-	        );
-	    },
-	});
-
 
 /***/ }
 /******/ ])
