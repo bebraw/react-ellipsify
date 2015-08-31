@@ -28,6 +28,10 @@ See */demo* for a complete example.
 * Developing - **npm start** - This will run a server at *localhost:3000* and use Hot Module Reloading.
 * Demo deployment - **npm run gh-pages** and **npm run deploy-gh-pages** - Demo will contain *README.md* by default and comes with simple styling based on Pure.
 
+## Contributors
+
+* [Craig Ambrose](https://github.com/craigambrose) - Bumped peer dependencies
+
 ## License
 
 react-ellipsify is available under MIT. See LICENSE for more details.
