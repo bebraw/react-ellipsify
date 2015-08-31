@@ -56,7 +56,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	var React = __webpack_require__(1);
-	var cloneWithProps = React.addons.cloneWithProps;
 
 	var More = __webpack_require__(2);
 
@@ -72,6 +71,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        moreClass: React.PropTypes.string,
 	        atFront: React.PropTypes.bool,
 	        onShow: React.PropTypes.func,
+	        children: React.PropTypes.node,
 	    },
 
 	    getDefaultProps:function() {
@@ -139,7 +139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function ellipsifyFromFront(options, children, memo) {
 	    var ret = [];
 
-	    React.Children.forEach(children, function(child)  {
+	    React.Children.forEach(children, function(child, i)  {
 	        var grandChildren = child && child.props && child.props.children;
 	        var c;
 
@@ -147,11 +147,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var newChildren = ellipsifyFromFront(options, grandChildren, memo);
 
 	            if(newChildren && newChildren.length) {
-	                c = cloneWithProps(child);
-
-	                c.props.children = newChildren;
-
-	                ret.push(c);
+	                ret.push(
+	                    React.cloneElement(child, {key: ("child-" + i)}, newChildren)
+	                );
 	            }
 	        }
 	        else {
@@ -197,11 +195,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var newChildren = ellipsifyFromBack(options, grandChildren, memo);
 
 	            if(newChildren && newChildren.length) {
-	                c = cloneWithProps(child);
-
-	                c.props.children = newChildren;
-
-	                ret.unshift(c);
+	                ret.unshift(
+	                    React.cloneElement(child, {key: ("child-" + i)}, newChildren)
+	                );
 	            }
 	        }
 	        else {
@@ -238,7 +234,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
