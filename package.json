@@ -55,7 +55,8 @@
   "keywords": [
     "react",
     "reactjs",
-    "ellipsis"
+    "ellipsis",
+	"react-component"
   ],
   "licenses": [
     {
