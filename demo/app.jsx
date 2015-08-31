@@ -20,7 +20,7 @@ module.exports = React.createClass({
             visibleItems: 5,
             separator: ' ',
             more: '…',
-            atFront: true,
+            atFront: false,
         };
     },
 
