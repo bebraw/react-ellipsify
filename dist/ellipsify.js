@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("react/addons"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react/addons"], factory);
+		define(["React"], factory);
 	else if(typeof exports === 'object')
 		exports["Ellipsify"] = factory(require("react/addons"));
 	else
-		root["Ellipsify"] = factory(root["react/addons"]);
+		root["Ellipsify"] = factory(root["React"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
