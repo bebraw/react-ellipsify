@@ -12,7 +12,8 @@
     "dist": "webpack --config ./config/webpack.dist.js && webpack --config ./config/webpack.dist.min.js",
     "dist-modules": "babel ./lib --out-dir ./dist-modules",
     "lint": "eslint . --ext .js --ext .jsx",
-    "preversion": "npm run test && npm run dist && npm run dist-modules && git commit --allow-empty -am \"Update dist\""
+    "preversion": "npm run test && npm run dist && npm run dist-modules && git commit --allow-empty -am \"Update dist\"",
+    "postpublish": "npm run gh-pages && npm run deploy-gh-pages"
   },
   "main": "dist-modules/index.js",
   "dependencies": {},
