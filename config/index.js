@@ -70,7 +70,7 @@ exports.dev = extend(common, {
     module: {
         loaders: commonLoaders.concat([{
             test: /\.jsx?$/,
-            loaders: ['react-hot', 'jsx-loader?harmony'],
+            loaders: ['jsx-loader?harmony'],
         }])
     }
 });

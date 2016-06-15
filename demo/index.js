@@ -8,11 +8,15 @@ require('./main.css');
 require('../style.css');
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var App = require('./app.jsx');
-
 
 main();
 
 function main() {
-    React.render(<App />, document.body);
+  const app = document.createElement('div');
+
+  document.body.appendChild(app);
+
+  ReactDOM.render(<App />, app);
 }

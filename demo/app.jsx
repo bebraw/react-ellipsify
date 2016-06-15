@@ -12,8 +12,6 @@ var Ellipsify = require('../lib');
 module.exports = React.createClass({
     displayName: 'App',
 
-    mixins: [React.addons.LinkedStateMixin],
-
     getInitialState() {
         return {
             visible: false,
@@ -51,29 +49,63 @@ module.exports = React.createClass({
                                     <div className='pure-g'>
                                         <div className='pure-u-1-2 pure-u-md-1-2'>
                                             <label>Visible items</label>
-                                            <input type='number' className='pure-u-23-24' valueLink={this.linkState('visibleItems')} />
+                                            <input
+                                                type='number'
+                                                className='pure-u-23-24'
+                                                value={this.state.visibleItems}
+                                                onChange={e => this.setState({
+                                                    visibleItems: e.target.value
+                                                })}
+                                            />
                                         </div>
 
                                         <div className='pure-u-1-2 pure-u-md-1-2'>
                                             <label>Separator</label>
-                                            <input type='text' className='pure-u-23-24' valueLink={this.linkState('separator')} />
+                                            <input
+                                                type='text'
+                                                className='pure-u-23-24'
+                                                value={this.state.separator}
+                                                onChange={e => this.setState({
+                                                    separator: e.target.value
+                                                })}
+                                            />
                                         </div>
 
                                         <div className='pure-u-1-2 pure-u-md-1-2'>
                                             <label>More</label>
-                                            <input type='text' className='pure-u-23-24' valueLink={this.linkState('more')} />
+                                            <input
+                                                type='text'
+                                                className='pure-u-23-24'
+                                                value={this.state.more}
+                                                onChange={e => this.setState({
+                                                    more: e.target.value
+                                                })}
+                                            />
                                         </div>
 
                                         <div className='pure-u-1-2 pure-u-md-1-2'>
                                             <label>At front</label>
-                                            <input type='checkbox' className='pure-u-23-24' checkedLink={this.linkState('atFront')} />
+                                            <input
+                                                type='checkbox'
+                                                className='pure-u-23-24'
+                                                value={this.state.atFront}
+                                                onChange={e => this.setState({
+                                                    atFront: !this.state.atFront
+                                                })}
+                                            />
                                         </div>
                                     </div>
                                 </fieldset>
                                 <fieldset>
                                     <div className='pure-g'>
                                         <div className='pure-u-1 pure-u-md-1'>
-                                            <button type="submit" onClick={this.reset} disabled={!visible} className="pure-button pure-button-primary">Reset</button>
+                                            <button
+                                                type="submit"
+                                                onClick={this.reset}
+                                                disabled={!visible}
+                                                className="pure-button pure-button-primary">
+                                                Reset
+                                            </button>
                                         </div>
                                     </div>
                                 </fieldset>
