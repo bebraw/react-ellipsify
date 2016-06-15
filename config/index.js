@@ -111,7 +111,7 @@ exports.ghpages = extend(common, {
 var commonDist = extend(common, {
     entry: './lib/index',
     externals: {
-        'react/addons': {
+        'react': {
             commonjs: 'react/addons',
             commonjs2: 'react/addons',
             amd: 'React',
