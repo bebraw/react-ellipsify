@@ -21,6 +21,8 @@ If **more** is clicked, whole content is displayed.
 
 See */demo* for a complete example.
 
+> If you want to learn more about React, read [SurviveJS - Webpack and React](http://survivejs.com/).
+
 ## Development
 
 * Linting - **npm run lint**
