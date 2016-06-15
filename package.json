@@ -3,7 +3,7 @@
   "description": "Ellipsify content",
   "author": "Juho Vepsalainen <bebraw@gmail.com>",
   "user": "bebraw",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "scripts": {
     "start": "node server.js",
     "test": "jest && npm run lint",
