@@ -3,6 +3,10 @@
 
 Usage:
 
+```javascript
+import Ellipsify from 'react-ellipsify';
+```
+
 ```html
 <Ellipsify visibleItems={5} separator=' ' more='…' moreClass='more' atFront={true}>
     <p>Lorem ipsum dolor sit amet...</p>
