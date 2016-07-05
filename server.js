@@ -1,17 +1,18 @@
-'use strict';
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
+/* eslint-disable no-console */
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 
-var config = require('./config/webpack.config');
-
+const config = require('./config/webpack.config');
 
 new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath,
-    hot: true
+  publicPath: config.output.publicPath,
+  hot: true
 }).listen(3000, '0.0.0.0', function (err) {
-    if(err) {
-        return console.log(err);
-    }
+  if (err) {
+    console.log(err);
 
-    console.log('Listening at 0.0.0.0:3000');
+    return;
+  }
+
+  console.log('Listening at 0.0.0.0:3000');
 });

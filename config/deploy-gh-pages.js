@@ -8,5 +8,5 @@ var config = require('./webpack.gh-pages');
 main();
 
 function main() {
-    ghpages.publish(config.output.path, console.error.bind(console));
+  ghpages.publish(config.output.path, console.error.bind(console));
 }

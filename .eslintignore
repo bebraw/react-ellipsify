@@ -1,4 +1,6 @@
 node_modules/
+dist-modules/
 gh-pages/
 dist/
+config/
 
