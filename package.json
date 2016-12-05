@@ -41,6 +41,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "gh-pages": "^0.12.0",
+    "git-prepush-hook": "^1.0.1",
     "highlight-loader": "^0.7.2",
     "highlight.js": "^9.8.0",
     "html-loader": "^0.4.4",
@@ -91,5 +92,8 @@
       "js",
       "jsx"
     ]
-  }
+  },
+  "pre-push": [
+    "test:all"
+  ]
 }
