@@ -6,7 +6,7 @@
   "version": "0.6.2",
   "scripts": {
     "start": "webpack-dev-server",
-    "test:all": "npm test:coverage && npm run test:lint",
+    "test:all": "npm run test:coverage && npm run test:lint",
     "test": "jest --",
     "test:coverage": "jest --coverage --",
     "test:watch": "jest --watch --",
