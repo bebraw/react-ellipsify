@@ -3,4 +3,4 @@ dist-modules/
 gh-pages/
 dist/
 config/
-
+coverage/
